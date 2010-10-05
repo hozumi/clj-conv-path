@@ -1,6 +1,6 @@
 # clj-conv-path
 
-clj-conv-path is a Clojure utility that converts absolute path into relative path.
+clj-conv-path is a Clojure utility which converts absolute path into relative path.
 
 ## Usage
 
