@@ -6,13 +6,13 @@ clj-conv-path is a Clojure utility which converts absolute path into relative pa
 
     (use 'hozumi.conv-path)
 
-    (abs->relative "/Users/fatrow/Documents")
+    (path->relative "/Users/fatrow/Documents")
     => "../../Documents"
 
     ;;You can specify base directory.	
-    (abs->relative "/Users/fatrow/Documents" ".")
+    (path->relative "/Users/fatrow/Documents" ".")
     => "../../Documents"
-    (abs->relative "/Users/fatrow/Documents" "..")
+    (path->relative "/Users/fatrow/Documents" "..")
     => "../Documents"
     
 
