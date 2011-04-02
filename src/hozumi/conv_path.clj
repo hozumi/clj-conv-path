@@ -64,6 +64,9 @@
       (.startsWith href "/")
       (str scheme "://" domain (port-with-colon-or-nil port) href)
 
+      (.startsWith href "data:")
+      href
+
       (.startsWith href "./")
       (let [[_ tail] (re-find #"^\./(.*)" href)
             is-current-dir? (.endsWith current-uri "/")]

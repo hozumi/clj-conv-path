@@ -32,4 +32,6 @@
   (is (= "http://example.com/c" (absolute-url "../c" "http://example.com/a/b")))
   (is (= "http://example.com/a/c" (absolute-url "../c" "http://example.com/a/b/")))
   (is (= "http://example.com/x" (absolute-url "../../x" "http://example.com/a/b")))
-  (is (= "http://example.com/x/y" (absolute-url "../../x/y" "http://example.com/a/b"))))
+  (is (= "http://example.com/x/y" (absolute-url "../../x/y" "http://example.com/a/b")))
+  
+  (is (= "data:image/abcdef" (absolute-url "data:image/abcdef" "http://example.com/"))))

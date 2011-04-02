@@ -1,4 +1,4 @@
-(defproject org.clojars.hozumi/clj-conv-path "1.0.0-SNAPSHOT"
+(defproject org.clojars.hozumi/clj-conv-path "1.0.0"
   :description "Convert absolute path into relative path."
   :warn-on-reflection true
   :dependencies [[org.clojure/clojure "1.2.0"]
