@@ -6,17 +6,17 @@
   ([path] (path->relative path "."))
   ([path base]  ;;"/a/b/c/d"  "."
      (let [abs-path   (.getCanonicalPath (io/file path)) ;;"/a/b/c/d" -> "/a/b/c/d" for confirmation
-	   base-path  (.getCanonicalPath (io/file base)) ;;"." -> "/a/b/e"
-	   abs-parts  (filter #(not= "" %) (.split abs-path "/")) ;;("a" "b" "c" "d")
-	   base-parts (filter #(not= "" %) (.split base-path "/"));;("a" "b" "e")
-	   base-n     (count base-parts) ;; 3
-	   common     (take-while (fn [[a b]] (= a b))   ;; ("a" "b")
-				  (map vector abs-parts base-parts))
-	   common-n   (count common) ;; 2
-	   abs-dif    (drop common-n abs-parts) ;; ("c" "d")
-	   climb      (repeat (- base-n common-n) "..") ;; ("..")
-	   r-parts    (concat climb abs-dif) ;; (".." "c" "d")
-	   relative   (butlast (interleave r-parts (repeat "/")))]
+     base-path  (.getCanonicalPath (io/file base)) ;;"." -> "/a/b/e"
+     abs-parts  (filter #(not= "" %) (.split abs-path "/")) ;;("a" "b" "c" "d")
+     base-parts (filter #(not= "" %) (.split base-path "/"));;("a" "b" "e")
+     base-n     (count base-parts) ;; 3
+     common     (take-while (fn [[a b]] (= a b))   ;; ("a" "b")
+          (map vector abs-parts base-parts))
+     common-n   (count common) ;; 2
+     abs-dif    (drop common-n abs-parts) ;; ("c" "d")
+     climb      (repeat (- base-n common-n) "..") ;; ("..")
+     r-parts    (concat climb abs-dif) ;; (".." "c" "d")
+     relative   (butlast (interleave r-parts (repeat "/")))]
        (apply str relative))))
 
 (defn when-pos [v]
@@ -59,7 +59,7 @@
       href
       ;;protocol relative path
       (re-find #"^//[^/]+\.[^/]+" href)
-      href
+      (str scheme ":" href)
 
       (.startsWith href "/")
       (str scheme "://" domain (port-with-colon-or-nil port) href)
