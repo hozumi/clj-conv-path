@@ -18,4 +18,4 @@ clj-conv-path is a Clojure utility which converts absolute path into relative pa
 
 ## Installation
 Leiningen
-    [org.clojars.hozumi/clj-conv-path "1.0.0"]
+    [org.clojars.hozumi/clj-conv-path "1.0.1"]
